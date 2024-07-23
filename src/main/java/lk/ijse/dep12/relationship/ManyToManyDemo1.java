@@ -22,7 +22,7 @@ public class ManyToManyDemo1 {
                 tx.begin();
                 Student e001 = em.find(Student.class, "E001");
                 Course c001 = em.find(Course.class, "C001");
-                Enroll l1 = new Enroll("Lahiru", Date.valueOf(LocalDate.now()), e001, c001);
+                Enroll l1 = new Enroll(e001, c001,"Lahiru", Date.valueOf(LocalDate.now()));
 
                 em.persist(l1);
                 tx.commit();

@@ -10,10 +10,8 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Embeddable
+
 public class EnrollPK implements Serializable {
-    @Column(name = "student_id")
-    private String studentId;
-    @Column(name = "course_code")
-    private String courseCode;
+    private Student student;
+    private Course course;
 }
