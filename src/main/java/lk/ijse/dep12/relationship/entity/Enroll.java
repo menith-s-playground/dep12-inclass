@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 @Data
 @AllArgsConstructor
@@ -16,16 +16,17 @@ import java.util.Date;
 public class Enroll implements Serializable {
     @EmbeddedId
     private EnrollPK enrollPK;
+
     @Column(name = "registered_by")
     private String registeredBy;
     private Date date;
 
     @ManyToOne
-    @JoinColumn(name = "student_id",referencedColumnName = "id" ,insertable = false,updatable = false)
+    @MapsId("studentId")
     private Student student;
 
     @ManyToOne
-    @JoinColumn(name = "course_code",referencedColumnName = "code" ,insertable = false,updatable = false)
+    @MapsId("courseCode")
     private Course course;
 
     public Enroll( String registeredBy, Date date, Student student, Course course) {

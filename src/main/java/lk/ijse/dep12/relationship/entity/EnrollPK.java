@@ -16,5 +16,4 @@ public class EnrollPK implements Serializable {
     private String studentId;
     @Column(name = "course_code")
     private String courseCode;
-
 }
